@@ -53,7 +53,7 @@ class DataController {
 					requestForUSDAItem.predicate = predicate
 					var error: NSError?
 					var items = managedObjectContext?.executeFetchRequest(requestForUSDAItem, error: &error)
-					
+
 					if (items?.count != 0) {
 						// The item is already saved
 						println("The item was already saved")

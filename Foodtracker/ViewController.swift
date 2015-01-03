@@ -147,8 +147,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		}
 		else if (selectedScopeButtonIndex == 1) {
 			let itemID = self.apiSearchForFoods[indexPath.row].itemID
-			self.dataController.saveUSDAItemForId(itemID, json: self.jsonResponse)
 			self.performSegueWithIdentifier("toDetailVCSegue", sender: nil)
+			self.dataController.saveUSDAItemForId(itemID, json: self.jsonResponse)
 		}
 		else if (selectedScopeButtonIndex == 2) {
 			if (self.searchController.active) {
@@ -235,7 +235,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		var task = session.dataTaskWithRequest(request, completionHandler: { (data, response, err) -> Void in
 			var conversionError: NSError?
 			var jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves, error: &conversionError) as? NSDictionary
-			//println(jsonDictionary)
+//			println(jsonDictionary)
 			
 			if (conversionError != nil) {
 				println(conversionError!.localizedDescription)
